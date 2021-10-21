@@ -1,7 +1,3 @@
-// server.js
-// where your node app starts
-
-// init project
 const express = require('express');
 const app = express();
 
@@ -18,6 +14,7 @@ app.get('/', function (req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
+// your first API endpoint...
 app.get('/api/hello', function (req, res) {
   res.json({ greeting: 'hello API' });
 });
@@ -25,7 +22,8 @@ app.get('/api/hello', function (req, res) {
 app.get('/api/:date', (req, res) => {
   const extractedValue = req.params.date;
 
-  let date = extractedValue.includes('-') ? new Date(extractedValue) : new Date(parseInt(extractedValue));
+  const date = new Date(isNaN(extractedValue) ? extractedValue : parseInt(extractedValue));
+
   if (date instanceof Date && !isNaN(date.valueOf())) {
     const unixDate = date.getTime();
     const utcDate = date.toUTCString();
@@ -46,4 +44,4 @@ app.get('/api', (req, res) => {
   res.json(dateObj);
 });
 
-var listener = app.listen(3000);
+app.listen(3000);

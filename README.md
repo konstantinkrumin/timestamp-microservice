@@ -4,7 +4,7 @@ Stack: **Javascript**, **Node.JS**, **Express**
 
 | API        | HTTP Method | Description                                       |
 | ---------- | ----------- | ------------------------------------------------- |
-| /          | GET         | show main page                                    |
+| /          | GET         | shows main page                                   |
 | /api       | GET         | returns current date in both UNIX and UTC formats |
 | /api/:date | GET         | returns passed date in both UNIX and UTC formats  |
 
